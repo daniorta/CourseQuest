@@ -26,9 +26,9 @@ public class Institution {
 
     private String name;
 
-    private String password;
+    private String password; //*
 
-    private UsersType usertype;
+    private UsersType usertype; //*
 
     private String address;
 

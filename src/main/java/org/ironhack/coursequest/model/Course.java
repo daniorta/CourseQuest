@@ -25,6 +25,6 @@ public class Course {
 
     private Integer duration;
 
-    private String teacher;
+    private String tutor;
 
 }

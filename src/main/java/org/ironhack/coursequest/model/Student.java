@@ -35,6 +35,8 @@ public class Student {
 
     private String mail;
 
+    //Faltan las relacciones con las tablas matricula, curso e institucion.
+
 
 
 
