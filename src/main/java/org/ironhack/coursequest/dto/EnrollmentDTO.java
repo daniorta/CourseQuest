@@ -1,10 +1,5 @@
-package org.ironhack.coursequest.model;
+package org.ironhack.coursequest.dto;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,18 +9,12 @@ import org.ironhack.coursequest.enuns.Status;
 
 import java.time.LocalDate;
 
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity
-public class Enrollment {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class EnrollmentDTO {
 
     @NotNull(message = "Enrollment Date cannot be null.")
     private LocalDate enrollmentDate; //Fecha de inscripción
@@ -39,15 +28,11 @@ public class Enrollment {
     @NotNull(message = "Enrollment ending cannot be null.")
     private LocalDate ending;//Fecha de finalización
 
-    @ManyToOne
-    @JoinColumn(name="course_id")
-    @JsonIgnore
-    private Course course;
+    @NotNull(message = "Course ID cannot be null.")
+    private Long courseId;
 
+    @NotNull(message = "Student ID cannot be null.")
+    private Long studentId;
 
-    @ManyToOne
-    @JoinColumn(name="student_id")
-    @JsonIgnore
-    private Student student;
 
 }
