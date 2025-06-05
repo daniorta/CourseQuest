@@ -44,6 +44,8 @@ public class Student {
     @NotBlank
     private String mail;
 
+    //Faltan las relacciones con las tablas matricula, curso e institucion.
+
 
     @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     @JsonIgnore

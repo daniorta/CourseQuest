@@ -26,6 +26,10 @@ public class Institution {
 
     private String name;
 
+    private String password;
+
+    private UsersType usertype;
+
     private String address;
 
     private String email;
