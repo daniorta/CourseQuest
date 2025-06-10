@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "e6703999-e01e-4100-b8ec-65a8cad5dfca",
+		"name": "CurseQuest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34476083",
+		"_collection_link": "https://amazon-es0325-9438.postman.co/workspace/Amazon-Es_03_25~ce60f9cd-2d31-489a-935c-4ae28fe6b272/collection/34476083-e6703999-e01e-4100-b8ec-65a8cad5dfca?action=share&source=collection_link&creator=34476083"
+	},
+	"item": [
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"coffe_name\": \"Coffee Black\",\r\n    \"origin\": \"Cuba\",\r\n    \"strength\": \"2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/course/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"course",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ciberseguridad\",\r\n    \"duration\": 3800,\r\n    \"tutor\": \"Mercedes Calvo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Updated Course Name\",\r\n    \"duration\": 1800,\r\n    \"tutor\": \"Updated Tutor Name\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/course/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"course",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//hasta que no se elimine las instancias de inscripciones asociadas a los cursos, no podemos borrar la matricula",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/course/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"course",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Enrollment",
+			"item": [
+				{
+					"name": "Enrollments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/enrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enrollment/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/enrollment/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enrollement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"enrollmentDate\": \"2021-03-01\",\r\n    \"status\":\"INCOMPLETE\",\r\n    \"grade\": 0.0,\r\n    \"ending\": \"2023-02-23\",\r\n    \"courseId\":1,\r\n    \"studentId\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/enrollment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enrollment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"enrollmentDate\": \"2024-01-15\",\r\n    \"status\":\"COMPLETE\",\r\n    \"grade\": 100,\r\n    \"ending\": \"2025-02-23\",\r\n    \"courseId\":2,\r\n    \"studentId\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/enrollment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enrollment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/enrollment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enrollment/grade",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"grade\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/enrollment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/student/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Daniel\",\r\n    \"surname\": \"Orta García\",\r\n    \"address\": \"Puerto Serrano, Cádiz\",\r\n    \"dateOfBirth\": \"1988-03-15\",\r\n    \"mail\":\"danielorta@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Student",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Alejandro\",\r\n    \"surname\":\"Martín García\",\r\n    \"address\":\"Calle Luna, 5, 28013 Madrid, España\",\r\n    \"mail\":\"alejandro.garcia@email.com\",\r\n    \"dateOfBirth\":\"1990-03-25\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//Hay que borrar primero la matrícula de estudiante que deseamos eliminar.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
