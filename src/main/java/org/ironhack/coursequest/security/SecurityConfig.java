@@ -74,33 +74,47 @@ public class SecurityConfig {
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/api/login/**").permitAll()// public endpoint, no tienes que estar logeado ni ser parte de mi aplicación
 
-               // endpoint publico:
-                .requestMatchers(GET, "/course").permitAll()
+
 
                 //endpoint para cursos
-                .requestMatchers(GET, "/course/*").hasAnyAuthority("ROLE_USER")
+                .requestMatchers(GET, "/course").permitAll()// endpoint publico:
+
+                .requestMatchers(GET, "/course/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+
                 .requestMatchers(POST, "/course/").hasAnyAuthority("ROLE_ADMIN")
                 .requestMatchers(PUT, "/course/*").hasAnyAuthority("ROLE_ADMIN")
-                .requestMatchers(DELETE, "course/*").hasAnyAuthority("ROLE_ADMIN")
+                .requestMatchers(DELETE, "/course/*").hasAnyAuthority("ROLE_ADMIN")
 
                 //endpoint para Enrollment
                 .requestMatchers(GET, "/enrollment").hasAnyAuthority("ROLE_ADMIN")
-                .requestMatchers(GET, "/enrollment/*").hasAnyAuthority("ROLE_ADMIN")
+                .requestMatchers(GET, "/enrollment/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+
+                .requestMatchers(GET, "/enrollment/course").hasAnyAuthority("ROLE_ADMIN")//matrículas en un curso
+                .requestMatchers(GET, "/enrollment/student").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")//matricula de un estudiante
+                .requestMatchers(GET, "/enrollment/student/*/course/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")//TODO Probar
+
                 .requestMatchers(POST, "/enrollment").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                 .requestMatchers(PUT, "/enrollment/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
-                .requestMatchers(PATCH, "/enrollment/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                .requestMatchers(PATCH, "/enrollment/*").hasAnyAuthority("ROLE_ADMIN")
                 .requestMatchers(DELETE, "/enrollment/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
 
 
+                //endpoint para Student
+                .requestMatchers(GET, "/student").hasAnyAuthority("ROLE_ADMIN")
+                .requestMatchers(GET, "/student/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                .requestMatchers(POST,"/student").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                .requestMatchers(PUT,"/student/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
+                .requestMatchers(DELETE,"/student/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
 
 
-                .requestMatchers(GET, "/institution").hasAnyAuthority("ROLE_ADMIN")
+
+                //Endpoint para Institution
+                .requestMatchers(GET, "/institution").permitAll()//Public
+                .requestMatchers(GET, "/institution/*").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                 .requestMatchers(POST, "/institution").hasAnyAuthority("ROLE_ADMIN")
+                .requestMatchers(PUT, "/institution/*").hasAnyAuthority("ROLE_ADMIN")
+                .requestMatchers(DELETE, "/institution/*").hasAnyAuthority("ROLE_ADMIN")
 
-
-                .requestMatchers(POST, "/api/bookings").hasAnyAuthority("ROLE_USER")
-                .requestMatchers(PATCH, "/api/bookings/*/status").hasAnyAuthority("ROLE_ADMIN")
-                .requestMatchers(DELETE, "/api/bookings/*").hasAnyAuthority("ROLE_USER","ROLE_ADMIN")
                 .anyRequest().authenticated()); // aquí indicamos que cualquier otro endpoint tiene que tener autenticación (privado)
 
         // Añade el filtro de autenticación al objeto http de seguridad

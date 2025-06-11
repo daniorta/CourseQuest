@@ -24,10 +24,10 @@ public class EnrollmentDTO {
     @NotNull(message = "Enrollment status cannot be null.")
     private Status status;
 
-    @Min(0)
-    @Max(100)
-    @NotNull(message = "Enrollment grade cannot be null.")
-    private Double grade;
+//    @Min(0)
+//    @Max(100)
+//    @NotNull(message = "Enrollment grade cannot be null.")
+//    private Double grade;
 
 
     @NotNull(message = "Enrollment ending cannot be null.")

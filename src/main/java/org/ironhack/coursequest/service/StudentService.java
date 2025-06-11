@@ -5,12 +5,13 @@ import org.ironhack.coursequest.exception.BadRequestException;
 import org.ironhack.coursequest.exception.NotFoundException;
 import org.ironhack.coursequest.model.Student;
 import org.ironhack.coursequest.repository.StudentRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -26,10 +27,16 @@ public class StudentService {
     }
 
     public Student getById(Long id){
+        Student student = getStudentId(id);
+        checkOwnerPermissions(student);
         return getStudentId(id);
     }
 
     public Student createStudent(StudentDTO studentDTO){
+
+        if(emailExists(studentDTO.getMail())){
+            throw new BadRequestException("This email is already associated with an existing student.");
+        }
 
         Student newStudent = new Student();
         newStudent.setName(studentDTO.getName());
@@ -48,6 +55,8 @@ public class StudentService {
 
         Student studentFromDb = getStudentId(id);
 
+        checkOwnerPermissions(studentFromDb);
+
         studentFromDb.setName(studentDTO.getName());
         studentFromDb.setSurname(studentDTO.getSurname());
         studentFromDb.setAddress(studentDTO.getAddress());
@@ -62,13 +71,14 @@ public class StudentService {
     }
 
     public void delete(Long id){
-        boolean existsById = studentRepository.existsById(id);
+        // Verifica si el estudiante existe
+        Student studentFromDb = getStudentId(id);
 
-        if(!existsById){
-            throw new NotFoundException(id);
-        }else {
-            studentRepository.deleteById(id);
-        }
+        // Verifica los permisos del usuario autenticado para este estudiante
+        checkOwnerPermissions(studentFromDb);
+
+        // Si las verificaciones pasan, procede a eliminar
+        studentRepository.deleteById(id);
     }
 
 
@@ -78,6 +88,12 @@ public class StudentService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
+    //Método para ver si el email existe a la hora de crear un nuevo student
+    private boolean emailExists(String email) {
+        return studentRepository.findByEmail(email).isPresent();
+    }
+
+    //Método para calcular edad.
     private void validateStudentAge(LocalDate dateOfBirth){
         int age = calculateAge(dateOfBirth);
         if (age < 16) {
@@ -91,5 +107,34 @@ public class StudentService {
     private int calculateAge(LocalDate dateOfBirth){
         return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
+    //----
+    //Método para opbtener el nombre del usuario
+    private String getAuthenticatedUsername() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null) {
+            throw new SecurityException("No user is currently authenticated");
+        }
+        return authentication.getName();
+    }
 
+    //Método para verificar que el student que intenta eliminar o actualizar corresponda con la matricula que es de el
+    private void checkOwnerPermissions(Student student) {
+        String currentUsername = getAuthenticatedUsername();
+
+        // Permite a los administradores realizar cualquier operación
+        if (hasRoleAdmin()) {
+            return; // Si es admin, no hay más verificaciones requeridas
+        }
+
+        // Verifica si el usuario actual es el dueño de la matrícula o un administrador
+        if (!student.getUsername().equals(currentUsername)) {
+            throw new SecurityException("User is not allowed to modify or delete this student.");
+        }
+    }
+
+    private boolean hasRoleAdmin() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getAuthorities().stream()
+                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
+    }
 }

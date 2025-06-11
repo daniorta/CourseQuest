@@ -37,7 +37,7 @@ public class Enrollment {
 
     @Min(0)
     @Max(100)
-    @NotNull(message = "Enrollment grade cannot be null.")
+//    @NotNull(message = "Enrollment grade cannot be null.")
     private Double grade;
 
     @NotNull(message = "Enrollment ending cannot be null.")

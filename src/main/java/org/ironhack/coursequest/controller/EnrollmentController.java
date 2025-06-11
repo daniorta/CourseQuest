@@ -1,7 +1,6 @@
 package org.ironhack.coursequest.controller;
 
 import jakarta.validation.Valid;
-import lombok.Getter;
 import org.ironhack.coursequest.dto.EnrollmentDTO;
 import org.ironhack.coursequest.dto.EnrollmentGradeDTO;
 import org.ironhack.coursequest.model.Enrollment;
