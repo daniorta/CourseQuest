@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "e6703999-e01e-4100-b8ec-65a8cad5dfca",
+		"_postman_id": "5e1c83b8-20c4-4e87-8778-319a21596523",
 		"name": "CurseQuest",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "34476083",
-		"_collection_link": "https://amazon-es0325-9438.postman.co/workspace/Amazon-Es_03_25~ce60f9cd-2d31-489a-935c-4ae28fe6b272/collection/34476083-e6703999-e01e-4100-b8ec-65a8cad5dfca?action=share&source=collection_link&creator=34476083"
+		"_collection_link": "https://amazon-es0325-9438.postman.co/workspace/Amazon-Es_03_25~ce60f9cd-2d31-489a-935c-4ae28fe6b272/collection/34476083-5e1c83b8-20c4-4e87-8778-319a21596523?action=share&source=collection_link&creator=34476083"
 	},
 	"item": [
 		{
@@ -38,11 +38,33 @@
 				},
 				{
 					"name": "course/id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbGV4IiwiZXhwIjoxNzQ5NjcyNjI3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.lgmr-kPDkkLAmIjQsCkhpOe-p_E2s2jFGVF8K9e-dv0",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/course/4",
+							"raw": "http://localhost:8080/course/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -50,7 +72,7 @@
 							"port": "8080",
 							"path": [
 								"course",
-								"4"
+								"3"
 							]
 						}
 					},
@@ -59,11 +81,21 @@
 				{
 					"name": "course",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NTc5Nzg1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.dVcwK1ikwYRLRfJbqkx-12XaYJdGiEvNh7yEqJTMJDI",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Ciberseguridad\",\r\n    \"duration\": 3800,\r\n    \"tutor\": \"Mercedes Calvo\"\r\n}",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"duration\": 3800,\r\n    \"tutor\": \"Mercedes Calvo\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -87,11 +119,21 @@
 				{
 					"name": "Course",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NjcwODE5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.uzy_zq3C4Fa7USLOxF1Q455RGj6DVQhtHFZuaDG-a-8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Updated Course Name\",\r\n    \"duration\": 1800,\r\n    \"tutor\": \"Updated Tutor Name\"\r\n}",
+							"raw": "{\r\n        \"id\": 5,\r\n        \"name\": \"bb\",\r\n        \"duration\": 2900,\r\n        \"capacity\": 10,\r\n        \"tutor\": \"Mercedes Calvo\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,7 +141,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/course/1",
+							"raw": "http://localhost:8080/course/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -107,7 +149,7 @@
 							"port": "8080",
 							"path": [
 								"course",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -116,6 +158,16 @@
 				{
 					"name": "Course",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NjcyMTc3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.rRx4X1ytCrcggKoEnfBVuAe0-AfKWNehAFL1zz67lZ8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -149,9 +201,31 @@
 			"item": [
 				{
 					"name": "Enrollments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NjQ0ODM3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.RDnx4p3km2Fy_GaCrffu2dLCVkImfYkYnBieM-9QrZA",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8080/enrollment",
 							"protocol": "http",
@@ -169,6 +243,16 @@
 				{
 					"name": "Enrollment/id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NTc4NzM2LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.0md7tIwlSLNXDLgAh4-__5QRY4OjdO8AF2efx5_IdYM",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -189,11 +273,21 @@
 				{
 					"name": "Enrollement",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbGV4IiwiZXhwIjoxNzQ5NTg0OTMwLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.E2W6lAI7qJE42LhIbY2zvqD5lKhtEn3ebHdV_xnDXlo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"enrollmentDate\": \"2021-03-01\",\r\n    \"status\":\"INCOMPLETE\",\r\n    \"grade\": 0.0,\r\n    \"ending\": \"2023-02-23\",\r\n    \"courseId\":1,\r\n    \"studentId\":2\r\n}",
+							"raw": "{\r\n    \"enrollmentDate\": \"2021-03-01\",\r\n    \"status\":\"INCOMPLETE\",\r\n    \"grade\": 0.0,\r\n    \"ending\": \"2023-02-23\",\r\n    \"courseId\":1,\r\n    \"studentId\":5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -246,8 +340,27 @@
 				{
 					"name": "Enrollment",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbGV4IiwiZXhwIjoxNzQ5NjUyMzExLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.XA4ErZ9ai3Ndcwd4S5bttOhwsXecfR6-coiiF9viI8g",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8080/enrollment/1",
 							"protocol": "http",
@@ -266,11 +379,21 @@
 				{
 					"name": "enrollment/grade",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NjcwODE5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.uzy_zq3C4Fa7USLOxF1Q455RGj6DVQhtHFZuaDG-a-8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"grade\": 100\r\n}",
+							"raw": "{\r\n    \"grade\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,7 +401,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/enrollment/1",
+							"raw": "http://localhost:8080/enrollment/9",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -286,6 +409,135 @@
 							"port": "8080",
 							"path": [
 								"enrollment",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroolment / course",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NjQ0ODM3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.RDnx4p3km2Fy_GaCrffu2dLCVkImfYkYnBieM-9QrZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//Traemos todas las matriculas asociadas a ese curso",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/enrollment/course?courseId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment",
+								"course"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enrollment / Student",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NjQ0ODM3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.RDnx4p3km2Fy_GaCrffu2dLCVkImfYkYnBieM-9QrZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//Obtenemos todas las incripciones de un estudiante.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/enrollment/student?studentId=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment",
+								"student"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enrollement/student/course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYXJsb3MzIiwiZXhwIjoxNzQ5NjQ0ODM3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdfQ.RDnx4p3km2Fy_GaCrffu2dLCVkImfYkYnBieM-9QrZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/enrollment/student/5/course/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enrollment",
+								"student",
+								"5",
+								"course",
 								"1"
 							]
 						}
@@ -319,10 +571,20 @@
 				{
 					"name": "Student/id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbGV4IiwiZXhwIjoxNzQ5NjcyNjgxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwicm9sZXMiOlsiUk9MRV9VU0VSIl19.Wt-3_gwNm6fDSGiFl_u-0kJoy5b3VfosEwvI2jstyMo",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/student/1",
+							"raw": "http://localhost:8080/student/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -330,7 +592,7 @@
 							"port": "8080",
 							"path": [
 								"student",
-								"1"
+								""
 							]
 						}
 					},
@@ -423,6 +685,185 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Institution",
+			"item": [
+				{
+					"name": "Institution",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/institution",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Institution/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/institution/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"institution",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Institution",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"name\": \"prueba\",\r\n        \"address\": \"Calle de la Prueba\",\r\n        \"email\": \"prueba@cipfpvalleelda.com\",\r\n        \"phoneNumber\": 965382745\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/institution",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Institution",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Modificando\",\r\n    \"address\": \"Modificando, Sevilla. calle Alhambra, número 1.\",\r\n    \"email\": \"04700260.secretaria@g.educaand.es\",\r\n    \"phoneNumber\": 950156742\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/institution/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"institution",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "institution/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/institution/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"institution",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"alex\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"carlos3\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
