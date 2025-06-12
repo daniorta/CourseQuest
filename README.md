@@ -1,51 +1,107 @@
-# CourseQuest.
+# CourseQuest
 
-## Aplicación donde podrás ver formaciones relacionada con la programación en distintos centros docentes de España.
-### Donde podrás registrarte en alguna formación de distintas instituciones rellenando tu matrícula.
+## 1. Descripción del proyecto
 
-## Pasos a seguir.
-1. [Instalación](#instalación)
-2. [Uso](#uso)
-3. [Arquitectura](#arquitectura)
-4. [Contribución](#contribucion)
-5. [Licencia](#licencia)
-6. [Autores](#autores)
-7. [Contacto](#contacto)
+CourseQuest es una aplicación que permite a los usuarios explorar formaciones relacionadas con la programación en distintos centros docentes de España. Los usuarios pueden registrarse en formaciones ofrecidas por diversas instituciones.
 
-## Instalación
-### Prerequisitos
-- Java 21
-- Spring Boot
-- MySQL
+## 2. Diagrama de Clases
+[Diagrama de clases](src/main/resources/static/Diagrama.png)
 
-### Dependencias
-Asegúrate de tener las dependencias necesarias para que la aplicación funcione correctamente.
-- **Spring Web**: Para desarrollar aplicaciones web..
-- **Spring Data JPA**: Para facilitar la integración de JPA en Spring.
-- **MySQL Driver**: Para conectar y manejar bases de datos MySQL.
-- **Validation**: Para manejar las validaciones de datos.
-- **Lombok**: Para reducir el boilerplate en el código Java.
-- **Spring Security**: Para la gestión de autenticación y autorización.
+## 3. Configuración
 
-### Instalación
-- 1 **Clonar el Repositorio.**
-  git clone https://github.com/daniorta/CourseQuest.git
-- 2 Abrir en Intellij
-   
-### Uso
-**Configuración en Base de datos.**
-- Conectarte a tu MySQL con las credenciales correspondientes.
-- configurar el archivo application.properties.
-**spring.application.name= Name project**
-**spring.datasource.url=jdbc:mysql://localhost:3306/nameSchema**
-**spring.datasource.username=nameMySQL**
-**spring.datasource.password=PasswordMySQL**
+**Clona el repositorio en tu GitHub**
+```bash
+   git clone https://github.com/daniorta/CourseQuest.git
+```
 
-**Star project**
+Opción 1: Ve a **File > Open** y selecciona la carpeta del proyecto.
 
-##Contacto
-**Correo Electrónico: daniel_orta88@hotmail.com**
-**GitHub: https://github.com/daniorta**
+Opción 2: Usa la opción **Get from Version Control** con la URL del repositorio:
+https://github.com/daniorta/CourseQuest.git
+
+## 4. Configurar la base de datos
+
+Crea una base de datos MySQL llamada `coursequest_db`.
+
+Edita el archivo `src/main/resources/application.properties` con tus credenciales de MySQL:
+
+```properties
+spring.application.name=CourseQuest
+spring.datasource.url=jdbc:mysql://localhost:3306/coursequest_db
+spring.datasource.username=tu_usuario_mysql
+spring.datasource.password=tu_contraseña_mysql
+spring.jpa.hibernate.ddl-auto=update
+```
+## 💻 Tecnologías Utilizadas
+
+- Java 21 – Lenguaje principal
+
+- Spring Boot – Framework backend
+
+- MySQL – Base de datos relacional
+
+- Spring Data JPA – Gestión de entidades
+
+- Spring Security – Autenticación y autorización
+
+- Lombok – Reducción de código repetitivo
+
+- Hibernate – ORM para acceso a datos
+
+- Maven – Gestión de dependencias
+
+## 🧭 Estructura de Controladores y Rutas
+
+Estructura general del proyecto:
+
+src/
+├── controller/
+├── config/ 
+├── dto/
+├── enums/
+├── exception/
+├── model/
+├── repository/
+├── security/
+├── service/
+
+## Endpoints Principales
+
+| Método | Ruta          | Descripción                 |
+|--------|---------------|-----------------------------|
+| GET    | /course       | Obtener lista de cursos     |
+| POST   | /courses      | Crear un curso (solo admin) |
+| GET    | /student/{id} | Ver perfil de student       |
+| POST   | /enrollment   | Registro de nuevos usuarios |
+| POST   | /api/login    | Inicio de sesión con JWT    |
 
 
+## 🔗 Enlaces Adicionales
 
+- 🗂️ [Enlace Trello](https://trello.com/b/D2o0aiFW/mi-tablero-de-trello)
+
+- 📽️ Presentación del Proyecto: (Agrega enlace a presentación o demo)
+
+## 🔮 Trabajo Futuro
+- Desarrollar una aplicación frontend separada usando frameworks modernos como React o Angular para mejorar la experiencia de usuario.
+- Sistema de comentarios y valoraciones en cursos.
+- Optimizar el rendimiento y escalabilidad para manejar mayor número de usuarios simultáneos.
+- Añadir integración con APIs externas para importar o sincronizar formaciones de otros proveedores.
+
+
+## 📚 Recursos
+
+- [Documentación Oficial Spring Boot](https://docs.spring.io/spring-boot/documentation.html)
+- [Documentación oficial de MySQL](https://dev.mysql.com/doc/)
+- [Guía oficial de Lombok](https://projectlombok.org/)
+- [Autenticación con JWT y Spring Security (Baeldung)](https://www.baeldung.com/spring-security-oauth-jwt)
+- [Documentación oficial de Spring Security](https://spring.io/projects/spring-security)
+
+
+## 👨‍💻 Miembros del Equipo
+
+**Daniel Orta – Desarrollador Backend Developer**
+
+**GitHub: [DaniDev](https://github.com/daniorta)**
+
+**Email: daniel_orta88@hotmail.com**
