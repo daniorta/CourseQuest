@@ -26,21 +26,25 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public Student getById(Long id){
+    public Student getById(Long id) {
         Student student = getStudentId(id);
         checkOwnerPermissions(student);
-        return getStudentId(id);
+        return student;
     }
 
     public Student createStudent(StudentDTO studentDTO){
+        // Obtener el correo electrónico del usuario autenticado
+        String authenticatedName = getAuthenticatedUsername();
 
-        if(emailExists(studentDTO.getMail())){
-            throw new BadRequestException("This email is already associated with an existing student.");
+        // Verificar si ya existe un estudiante con el nombre del usuario autenticado
+        if (nameExists(authenticatedName)) {
+            throw new BadRequestException("A student profile already exists for this name. Please delete the existing profile before attempting to create a new one.");
         }
 
         Student newStudent = new Student();
         newStudent.setName(studentDTO.getName());
         newStudent.setSurname(studentDTO.getSurname());
+        newStudent.setUsername(studentDTO.getUsername());
         newStudent.setAddress(studentDTO.getAddress());
         newStudent.setDateOfBirth(studentDTO.getDateOfBirth());
         newStudent.setEmail(studentDTO.getMail());
@@ -50,6 +54,8 @@ public class StudentService {
 
         return saveStudent;
     }
+
+
 
     public Student updateStudent(Long id, StudentDTO studentDTO){
 
@@ -89,8 +95,8 @@ public class StudentService {
     }
 
     //Método para ver si el email existe a la hora de crear un nuevo student
-    private boolean emailExists(String email) {
-        return studentRepository.findByEmail(email).isPresent();
+    private boolean nameExists(String name) {
+        return studentRepository.findByName(name).isPresent();
     }
 
     //Método para calcular edad.
@@ -128,7 +134,7 @@ public class StudentService {
 
         // Verifica si el usuario actual es el dueño de la matrícula o un administrador
         if (!student.getUsername().equals(currentUsername)) {
-            throw new SecurityException("User is not allowed to modify or delete this student.");
+            throw new SecurityException("Action not permitted by this user.");
         }
     }
 

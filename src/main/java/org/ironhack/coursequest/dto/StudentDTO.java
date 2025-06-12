@@ -25,6 +25,8 @@ public class StudentDTO {
     @NotBlank
     private String surname;
 
+    private String username;
+
     @NotBlank
     private String address;
 
@@ -33,4 +35,6 @@ public class StudentDTO {
 
     @NotBlank
     private String mail;
+
+
 }
