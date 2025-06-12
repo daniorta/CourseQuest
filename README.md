@@ -5,7 +5,7 @@
 CourseQuest es una aplicación que permite a los usuarios explorar formaciones relacionadas con la programación en distintos centros docentes de España. Los usuarios pueden registrarse en formaciones ofrecidas por diversas instituciones.
 
 ## 2. Diagrama de Clases
-[Diagrama de clases](src/main/resources/static/Diagrama.png)
+[Diagrama de clases](src/main/resources/static/course_quest diagrama.png)
 
 ## 3. Configuración
 
@@ -17,7 +17,7 @@ CourseQuest es una aplicación que permite a los usuarios explorar formaciones r
 Opción 1: Ve a **File > Open** y selecciona la carpeta del proyecto.
 
 Opción 2: Usa la opción **Get from Version Control** con la URL del repositorio:
-https://github.com/daniorta/CourseQuest.git
+https://github.com/turepositorio
 
 ## 4. Configurar la base de datos
 
@@ -64,7 +64,6 @@ src/
 ├── repository/
 ├── security/
 ├── service/
-
 ## Endpoints Principales
 
 | Método | Ruta          | Descripción                 |
@@ -77,10 +76,10 @@ src/
 
 
 ## 🔗 Enlaces Adicionales
-
+- 🚀 [CourseQuest](https://github.com/daniorta/CourseQuest)
 - 🗂️ [Enlace Trello](https://trello.com/b/D2o0aiFW/mi-tablero-de-trello)
+- 📽️ [Presentación del Proyecto](https://slides.com/danieljesusortagarcia/palette-f72801)
 
-- 📽️ Presentación del Proyecto: (Agrega enlace a presentación o demo)
 
 ## 🔮 Trabajo Futuro
 - Desarrollar una aplicación frontend separada usando frameworks modernos como React o Angular para mejorar la experiencia de usuario.
